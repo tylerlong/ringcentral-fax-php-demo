@@ -9,14 +9,5 @@ $platform->login(getenv('RINGCENTRAL_USERNAME'),
                   getenv('RINGCENTRAL_EXTENSION'),
                   getenv('RINGCENTRAL_PASSWORD'));
 
-$r = $platform->post('/subscription', array(
-    "eventFilters" => array(
-        "/restapi/v1.0/account/~/extension/~/presence?detailedTelephonyState=true"
-    ),
-    "deliveryMode" => array(
-        "transportType" => "WebHook",
-        "address" => ""
-    )
-));
-
-print("Subscription ID: " . $r->json()->id . "\n");
+$r = $platform->get('/restapi/v1.0/account/~/extension/~');
+print_r($r->json());
