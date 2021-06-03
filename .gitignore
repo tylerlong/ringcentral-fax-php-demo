@@ -1,2 +1,4 @@
 vendor/
 credentials.php
+request.json
+.secret
